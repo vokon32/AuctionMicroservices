@@ -1,6 +1,7 @@
 ﻿using AuctionMicro.DTOs;
 using AuctionMicro.Models;
 using AutoMapper;
+using Contracts;
 
 namespace AuctionMicro.RequestHelpers
 {
@@ -13,6 +14,10 @@ namespace AuctionMicro.RequestHelpers
             CreateMap<CreateAuctionDto, Auction>()
                 .ForMember(d => d.Item, o=> o.MapFrom(s => s));
             CreateMap<CreateAuctionDto, Item>();
+            CreateMap<AuctionDto, AuctionCreated>();
+           
+            CreateMap<Auction, AuctionUpdated>().IncludeMembers(a => a.Item);
+            CreateMap<Item, AuctionUpdated>();
         }
     }
 }
