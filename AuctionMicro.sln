@@ -15,7 +15,9 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "SearchService", "SearchServ
 		{625B06AB-1AB4-4E8A-881C-25F31DD6CC56} = {625B06AB-1AB4-4E8A-881C-25F31DD6CC56}
 	EndProjectSection
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Contracts", "Contracts\Contracts.csproj", "{CDE6FF60-37A5-42DC-923E-ABB6B2F91FEE}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Contracts", "Contracts\Contracts.csproj", "{CDE6FF60-37A5-42DC-923E-ABB6B2F91FEE}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "IdentityService", "src\identityservice\IdentityService.csproj", "{B5D2E927-D1F5-4606-8261-DF71DC54B3AB}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -35,6 +37,10 @@ Global
 		{CDE6FF60-37A5-42DC-923E-ABB6B2F91FEE}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{CDE6FF60-37A5-42DC-923E-ABB6B2F91FEE}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{CDE6FF60-37A5-42DC-923E-ABB6B2F91FEE}.Release|Any CPU.Build.0 = Release|Any CPU
+		{B5D2E927-D1F5-4606-8261-DF71DC54B3AB}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{B5D2E927-D1F5-4606-8261-DF71DC54B3AB}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{B5D2E927-D1F5-4606-8261-DF71DC54B3AB}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{B5D2E927-D1F5-4606-8261-DF71DC54B3AB}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
