@@ -1,21 +1,22 @@
-#See https://aka.ms/customizecontainer to learn how to customize your debug container and how Visual Studio uses this Dockerfile to build your images for faster debugging.
-
-FROM mcr.microsoft.com/dotnet/aspnet:6.0 AS base
+FROM mcr.microsoft.com/dotnet/sdk:7.0 AS build
 WORKDIR /app
 EXPOSE 80
 
-FROM mcr.microsoft.com/dotnet/sdk:6.0 AS build
-WORKDIR /src
-COPY ["SearchService/SearchService.csproj", "SearchService/"]
-RUN dotnet restore "SearchService/SearchService.csproj"
-COPY . .
-WORKDIR "/src/SearchService"
-RUN dotnet build "SearchService.csproj" -c Release -o /app/build
+COPY AuctionMicro.sln AuctionMicro.sln
+COPY AuctionMicro/AuctionMicro.csproj AuctionMicro/AuctionMicro.csproj
+COPY SearchService/SearchService.csproj SearchService/SearchService.csproj
+COPY src/GatewayService/GatewayService.csproj src/GatewayService/GatewayService.csproj
+COPY Contracts/Contracts.csproj Contracts/Contracts.csproj
+COPY src/identityservice/IdentityService.csproj src/identityservice/IdentityService.csproj
 
-FROM build AS publish
-RUN dotnet publish "SearchService.csproj" -c Release -o /app/publish /p:UseAppHost=false
+RUN dotnet restore AuctionMicro.sln
 
-FROM base AS final
+COPY SearchService src/SearchService
+COPY Contracts src/Contracts 
+WORKDIR /app/src/SearchService
+RUN dotnet publish -c Release -o /app/src/out
+
+FROM mcr.microsoft.com/dotnet/aspnet:7.0 
 WORKDIR /app
-COPY --from=publish /app/publish .
+COPY --from=build /app/src/out .
 ENTRYPOINT ["dotnet", "SearchService.dll"]
