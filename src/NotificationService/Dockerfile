@@ -13,12 +13,12 @@ COPY src/identityservice/IdentityService.csproj src/identityservice/IdentityServ
 
 RUN dotnet restore AuctionMicro.sln
 
-COPY AuctionMicro src/AuctionMicro 
-COPY Contracts src/Contracts 
-WORKDIR /app/src/AuctionMicro
+COPY src/NotificationService src/NotificationService 
+COPY Contracts Contracts 
+WORKDIR /app/src/NotificationService
 RUN dotnet publish -c Release -o /app/src/out
 
 FROM mcr.microsoft.com/dotnet/aspnet:7.0 
 WORKDIR /app
 COPY --from=build /app/src/out .
-ENTRYPOINT ["dotnet", "AuctionMicro.dll"]
+ENTRYPOINT ["dotnet", "NotificationService.dll"]

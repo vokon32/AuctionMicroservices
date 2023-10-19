@@ -7,6 +7,7 @@ COPY AuctionMicro/AuctionMicro.csproj AuctionMicro/AuctionMicro.csproj
 COPY SearchService/SearchService.csproj SearchService/SearchService.csproj
 COPY src/GatewayService/GatewayService.csproj src/GatewayService/GatewayService.csproj
 COPY src/BiddingService/BiddingService.csproj src/BiddingService/BiddingService.csproj
+COPY src/NotificationService/NotificationService.csproj src/NotificationService/NotificationService.csproj
 COPY Contracts/Contracts.csproj Contracts/Contracts.csproj
 COPY src/identityservice/IdentityService.csproj src/identityservice/IdentityService.csproj
 
