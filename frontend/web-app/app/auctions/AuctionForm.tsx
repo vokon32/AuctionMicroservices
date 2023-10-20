@@ -95,7 +95,7 @@ export default function AuctionForm({auction}: Props) {
 
 
       <div className='flex justify-between'>
-        <Button outline color='gray'>Cancel</Button>
+        <Button outline color='gray' onClick={()=>{router.push(`/auctions/details/${auction?.id}`)}}>Cancel</Button>
         <Button 
         disabled={!isValid}
         type='submit'
